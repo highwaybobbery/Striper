@@ -1,0 +1,11 @@
+%h1 Book Now!
+= form_for :booking, url: bookings_path, method: 'post' do |f|
+  %fieldset
+    = f.label :time
+    = f.number_field :time, in: 1..60
+    = f.label :email
+    = f.email_field :email
+    = f.label :description
+    = f.text_area :description
+  %fieldset
+    = f.submit 'Book it!'

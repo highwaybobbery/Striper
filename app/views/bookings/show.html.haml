@@ -1,0 +1,10 @@
+%h1 Booking Details
+%p
+  %label Time
+  = "#{@booking.time} #{'hour'.pluralize @booking.time}"
+%p
+  %label Email Address
+  = @booking.email
+%p
+  %label Description
+  = @booking.description
