@@ -3,11 +3,11 @@ source 'https://rubygems.org'
 gem 'jquery-rails'
 gem 'mysql2'
 gem 'rails', '3.2.3'
+gem 'haml'
 
 group :assets do
   gem 'bootstrap-sass'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'haml'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'uglifier', '>= 1.0.3'
 end
