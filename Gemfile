@@ -5,6 +5,7 @@ gem 'mysql2'
 gem 'rails', '3.2.3'
 
 group :assets do
+  gem 'bootstrap-sass'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'haml'
   gem 'sass-rails',   '~> 3.2.3'
@@ -18,6 +19,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'bourne', '1.0'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
