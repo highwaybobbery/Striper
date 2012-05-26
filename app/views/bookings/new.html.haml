@@ -1,11 +1,28 @@
+- content_for :head do
+  %script{ src: 'https://js.stripe.com/v1/' }
+  = javascript_tag "Stripe.setPublishableKey('pk_ZX0XWwf4iQgEJF8cMJfaCOlASuK7i');"
 %h1 Book Now!
-= form_for :booking, url: bookings_path, method: 'post' do |f|
-  %fieldset
-    = f.label :time
-    = f.number_field :time, in: 1..60
-    = f.label :email
-    = f.email_field :email
-    = f.label :description
-    = f.text_area :description
-  %fieldset
-    = f.submit 'Book it!'
+%div.row
+  = form_for :booking, url: bookings_path, method: 'post', html: { id: 'payment-form' } do |f|
+    %div.span4
+      %fieldset
+        = f.label :time
+        = f.number_field :time, in: 1..60
+        = f.label :email
+        = f.email_field :email
+        = f.label :description
+        = f.text_area :description, rows: 5
+      %fieldset
+    %div.span4
+      %div.payment-errors
+      %label Card Number
+      %input#card-number{ type: 'text', size: 20,  autocomplete: 'off' }
+      %label CVC
+      %input#card-cvc{  type: 'text', size: 4,  autocomplete: 'off' }
+      %label Expiration (MM/YYYY)
+      %input#card-expiry-month{  type: 'text', size: 2 }
+      %br
+      %input#card-expiry-year{  type: 'text', size: 4 }
+      %br
+      %button.submit-button{ type: 'submit' }
+        Submit Payment
