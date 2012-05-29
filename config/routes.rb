@@ -1,5 +1,5 @@
 Striper::Application.routes.draw do
-  root to: 'home#show'
+  root to: 'bookings#new', via: 'get'
   match '/bookings/', to: 'bookings#new', via: 'get'
 
   resource :home, only: [:show]

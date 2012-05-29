@@ -12,7 +12,6 @@ class Booking < ActiveRecord::Base
 
   def bill(token)
     if ! token.blank?
-      p "token: #{token}"
       Stripe.api_key = "l9nLW3HtFxPqLRDlbC0FpneKk9nTif8q"
       self.charge = Stripe::Charge.create(
          :currency => "usd",
