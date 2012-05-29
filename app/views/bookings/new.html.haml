@@ -3,26 +3,30 @@
   = javascript_tag "Stripe.setPublishableKey('pk_ZX0XWwf4iQgEJF8cMJfaCOlASuK7i');"
 %h1 Book Now!
 %div.row
-  = form_for :booking, url: bookings_path, method: 'post', html: { id: 'payment-form' } do |f|
+  = form_tag bookings_path, method: 'post',  id: 'payment-form'  do
     %div.span4
-      %fieldset
-        = f.label :time
-        = f.number_field :time, in: 1..60
-        = f.label :email
-        = f.email_field :email
-        = f.label :description
-        = f.text_area :description, rows: 5
-      %fieldset
-    %div.span4
+      = fields_for :booking do |booking_fields|
+        = booking_fields.label 'Email'
+        = booking_fields.email_field :email
+        = booking_fields.label 'How many hours?'
+        = booking_fields.number_field :time, in: 1..60,  size: 1
+        %span#rate @ $150 per hour
+        = booking_fields.label :description
+        = booking_fields.text_area :description, rows: 5
       %div.payment-errors
-      %label Card Number
-      %input#card-number{ type: 'text', size: 20,  autocomplete: 'off' }
-      %label CVC
-      %input#card-cvc{  type: 'text', size: 4,  autocomplete: 'off' }
-      %label Expiration (MM/YYYY)
-      %input#card-expiry-month{  type: 'text', size: 2 }
-      %br
-      %input#card-expiry-year{  type: 'text', size: 4 }
-      %br
+      %div#card-numbers
+        %label
+          Card Number
+          %input#card-number{ type: 'text', size: 20,  autocomplete: 'off' }
+        %label
+          CVC
+          %input#card-cvc{ type: 'text', size: 4,  autocomplete: 'off' }
+      %label Expiration
+      %div
+        %select#card-expiry-month
+          = options_for_select 01..12
+        %select#card-expiry-year
+          = options_for_select 2012..2022
+      %input#token{ name: 'token', type: 'hidden' }
       %button.submit-button{ type: 'submit' }
         Submit Payment

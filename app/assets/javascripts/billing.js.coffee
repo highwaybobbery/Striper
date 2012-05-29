@@ -1,6 +1,7 @@
 $ ->
   $("#payment-form").submit (event)->
     $('.submit-button').attr("disabled", "disabled")
+    $('.payment-errors').text('')
     Stripe.createToken({
       number: $('#card-number').val()
       cvc: $('#card-cvc').val()

@@ -13,3 +13,26 @@
 */
 
 @import 'bootstrap';
+
+input#booking_time {
+  display: inline-block;
+  width: auto;
+}
+input#password {
+  width: 120px;
+}
+div#card-numbers{
+  label{
+    display: inline-block
+  }
+  #card-number{
+    width: auto;
+  }
+  #card-cvc{
+    width: auto;
+  }
+}
+select#card-expiry-month, select#card-expiry-year{
+  display: inline;
+  width: auto;
+}

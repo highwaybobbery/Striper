@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'haml'
 gem 'jquery-rails'
 gem 'mysql2'
+gem 'stripe'
 gem 'rails', '3.2.3'
-gem 'haml'
 
 group :assets do
   gem 'bootstrap-sass'

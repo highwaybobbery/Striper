@@ -11,12 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120525194732) do
+ActiveRecord::Schema.define(:version => 20120529154825) do
 
   create_table "bookings", :force => true do |t|
-    t.integer "time",        :null => false
-    t.string  "email",       :null => false
-    t.string  "description", :null => false
+    t.integer  "time",        :null => false
+    t.string   "email",       :null => false
+    t.string   "description", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "charge",      :null => false
   end
 
   add_index "bookings", ["email"], :name => "index_bookings_on_email"
