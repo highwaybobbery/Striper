@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
       redirect_to @booking
     else
       flash[:error] = @booking.charge.failure_message
+      binding.pry
       render :new
     end
   end
